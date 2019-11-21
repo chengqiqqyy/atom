@@ -1,0 +1,43 @@
+*{
+  outline: none;
+  font-size: 25px;
+  font-family: Microsoft YaHei;
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(3, 3, 3, 0.9);
+  overflow: hidden;
+}
+
+.wrapper{
+  position: relative;
+  width: 980px;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-1,.page-2{
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 980px;
+  height: 400px;
+  line-height: 400px;
+  background-color: rgba(130, 80, 55, 0.9);
+}
+
+.page-2{
+  display: none;
+}
+
+.btn{
+  position: absolute;
+  top: 500px;
+  left: 440px;
+  width: 100px;
+}

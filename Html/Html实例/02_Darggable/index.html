@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Draggable</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://unpkg.com/vue"></script>  <!-- Vue框架 -->
+  </head>
+  <body>
+    <div id="demo">
+      <transition-group tag="div" class="container">
+        <div v-for="item in items" :key="item.key" class="item"
+         :style="{ background: item.color, width: '100px', height: '100px' }"
+         draggable="true" @dragstart="handleDragStart($event, item)"
+         @dragend="handleDragEnd($event, item)"
+         @dragenter="handleDragEnter($event, item)"
+         @dragover.prevent="handleDragOver($event, item)"
+         @drop.prevent="handleDrop($event, item)"
+        ></div>
+      </transition-group>
+    </div>
+    <script type="text/javascript" src="base.js"></script>
+  </body>
+</html>

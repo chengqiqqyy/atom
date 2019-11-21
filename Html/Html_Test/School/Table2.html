@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Table2</title>
+    <style>
+    *{
+      margin: 0 auto;
+      padding: 0;
+      font-family: SimHei;
+    }
+    table{
+      border-collapse: collapse;
+      border: 1px solid #999;
+      /*border: 1px solid #eee;*/
+    }
+    td{
+      width: 150px;
+      text-align: center;
+      padding: 5px;
+      border: 1px solid #999;
+    }
+    .head{
+      width: 50px;
+      border: 1px solid #999;
+      background: #DDD;
+    }
+    th{
+      text-align: center;
+      height: 35px;
+      border: 1px solid #66c;
+      background: rgba(17, 170, 204, 0.5);
+    }
+    #text{
+      text-align: right;
+    }
+  </style>
+  </head>
+
+  <body>
+    <table>
+      <tr>
+        <th colspan="2" style="color:#C36"><H1>じゃんけん・ぽん ❣</H1></th>
+      </tr>
+      <tr>
+        <td class="head" style="color:#F00"><input type="radio"  name="select"  value="0"></td>
+        <td>✊</td>
+      </tr>
+      <tr>
+        <td class="head" style="color:#F30"><input type="radio"  name="select"  value="1"></td>
+        <td>✌</td>
+      </tr>
+      <tr>
+        <td class="head" style="color:#F60"><input type="radio"  name="select"  value="2"></td>
+        <td>✋</td>
+      </tr>
+      <tr>
+        <td colspan="2">所持金:100円&emsp;&emsp;かけ金:<input type="text"  name="textarea"  value="10" size="10" id="text"></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type="submit"  name="submit"  value="勝負"></td>
+      </tr>
+    </table>
+  </body>
+</html>
