@@ -1,2 +1,2 @@
 # Hub
-A plcae to store files.
+A plcae to store files for one-time.
