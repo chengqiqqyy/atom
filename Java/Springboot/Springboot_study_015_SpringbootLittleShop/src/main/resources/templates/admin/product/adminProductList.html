@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Little Shop Managment System</title>
+    <div th:replace="admin/common/admin_css"></div>
+  </head>
+  <body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+      <!-- Navbar -->
+      <div th:replace="admin/common/adminNavTop::navbar_top"></div>
+      <!-- Main Sidebar Container -->
+      <div th:replace="admin/common/adminNavSide::sidebar"></div>
+
+      <!-- Content Wrapper-->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+          <div class="container-fluid">
+            <!-- col -->
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Dashboard</h1>
+              </div>
+              <!-- col -->
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item">
+                    <a href="#">Home</a>
+                  </li>
+                  <li class="breadcrumb-item active">Dashboard v1</li>
+                </ol>
+              </div>
+            </div><!-- row end -->
+          </div><!-- container-fluid end -->
+        </div><!-- content-header end -->
+
+        <!-- Main content -->
+        <section class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <td>ID</td>
+                    <td>商品名称</td>
+                    <td>商品型号</td>
+                    <td>商品编码</td>
+                    <td>商品价格</td>
+                    <td>商品库存</td>
+                    <td>商品操作</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="product:${products}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.model}"></td>
+                    <td th:text="${product.code}"></td>
+                    <td th:text="${product.price}"></td>
+                    <td th:text="${product.stock}"></td>
+                    <td>
+                      <a th:href="@{'/admin/product/edit/'+${product.id}}">修改</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <a class="btn btn-block btn-primary " th:href="@{/admin/product/new}">添加</a>
+            </div>
+            <!-- Row end -->
+          </div>
+          <!-- Container-fluid end -->
+        </section>
+        <!-- Main content end -->
+      </div>
+      <!-- content-wrapper end -->
+
+      <div th:replace="admin/common/admin_footer"></div>
+    </div><!-- wrapper end -->
+
+    <div th:replace="admin/common/admin_js"></div>
+  </body>
+</html>

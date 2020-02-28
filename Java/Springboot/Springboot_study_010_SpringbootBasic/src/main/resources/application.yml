@@ -1,0 +1,31 @@
+book:
+  name: What
+  price: 100
+  hobby:
+   - football
+   - basketball
+   - baseball
+   - singing
+
+booklist:
+  books:
+  - name: Java
+    price: 200
+    hobby:
+    - coding
+    - program
+  - name: Python
+    price: 150
+    hobby:
+    - game
+    - math
+  - name: Javascript
+    price: 100
+    hobby:
+    - killing
+  
+testdata:
+  driverName: Driver
+  url: org.apache.h2
+  username: test
+  password: test

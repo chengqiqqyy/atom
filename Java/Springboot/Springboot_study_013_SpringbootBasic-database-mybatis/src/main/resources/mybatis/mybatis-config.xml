@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<plugins>
+		<plugin interceptor="app.plugin.MyInterceptor">
+			<property name="key1" value="what"/>
+			<property name="key2" value="the"/>
+			<property name="key3" value="fuck"/>
+		</plugin>
+	</plugins>
+</configuration>

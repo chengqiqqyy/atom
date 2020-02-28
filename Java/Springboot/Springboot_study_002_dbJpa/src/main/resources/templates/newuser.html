@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>New User</title>
+</head>
+<style>
+	table { border-collapse: collapse;}
+</style>
+<body>
+	<form method="post" action="/save" th:object="${formModel}">
+		<input type="hidden" name="id" th:value="*{id}">
+		<table border="1">
+  		<tr>
+      		<th class="col_name">Name</th>
+      		<td class="col_data"><input type="text" name="name" th:value="*{name}" size="20" maxlength= "20" /></td>
+  		</tr>
+  		<tr>
+      		<th>Sex</th>
+      		<td><input type="text" name="sex" th:value="*{sex}" size="20" maxlength="20" /></td>
+  		</tr>
+  		<tr>
+      		<th>Work</th>
+      		<td><input type="text" name="work" th:value="*{work}" size="20" maxlength= "20" /></td>
+ 		 </tr>
+ 		 <tr>
+      		<th>Hobby</th>
+      		<td><input type="text" name="hobby" th:value="*{hobby}" size="20" maxlength= "20" /></td>
+ 		 </tr>
+		</table>
+		<hr>
+		<input type="submit" value="登　録" />
+	</form>
+	<form action="/">
+    	<input type="submit" value="戻　る" />
+	</form>
+</body>
+</html>

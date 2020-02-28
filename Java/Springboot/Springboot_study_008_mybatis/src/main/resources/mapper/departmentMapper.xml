@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="app.mapper.DepartmentMapper">
+	<resultMap type="app.entity.Department" id="department">
+		<result column="id" property="id"/>
+		<result column="user_id" property="userId"/>
+		<result column="code" property="code"/>
+		<result column="name" property="name"/>
+	</resultMap>
+	
+	<select id="findAllDepartment" resultMap="department">
+		select * from department
+	</select>
+	
+	<select id="findDepartmentByCode" parameterType="string" resultMap="department">
+		select * from department where code=#{code}	
+	</select>
+	
+</mapper>

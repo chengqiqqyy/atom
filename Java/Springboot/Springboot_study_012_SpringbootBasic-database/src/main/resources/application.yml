@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:h2database
+    username: admin
+    password: admin
+    schema:
+    - classpath:db/user.sql
+    #指定数据库连接池类型
+#    type: org.apache.commons.dbcp2.BasicDataSource
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      #数据库连接池初始化数量
+      minimum-idle: 10
+      #最大连接活动数
+      maximum-pool-size: 50
+      #最大等待毫秒数，单位为 ms，超过时间会出错误信息
+      connection-timeout: 10000
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true

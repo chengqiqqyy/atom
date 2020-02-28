@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script type="text/javascript" src="../static/js/jQuery.js" th:src="@{/js/jQuery.js}"></script>
+</head>
+<style>
+	div { text-align: center; }
+	th { text-align: center; }
+	#errorMsg {
+		height: 50px;
+		color: red;
+	}
+	form {
+		width: 50vw;
+	}
+
+</style>
+<body>
+	<div class="container">
+		<form name="signInForm" method="post">
+			<div id="errorMsg"></div>
+			<div class="form-group row">
+				<label for="username" class="col-sm-2 col-form-label">UserName</label>
+				<input type="text" name="username" value="" class="form-control col-sm-10" placeholder="Admin">
+			</div>
+			<div class="form-group row">
+				<label for="password" class="col-sm-2 col-form-label">Password</label>
+				<input type="password" name="password" value="" class="form-control col-sm-10" placeholder="Enter the password">
+			</div>
+			<div class="form-group row">
+				<label for="rePassword" class="col-sm-2 col-form-label">Password</label>
+				<input type="password" name="rePassword" value="" class="form-control col-sm-10" placeholder="Enter the password again">
+			</div>
+			<button type="button" name="button" class="btn btn-primary" onclick="signIn()">Sign in</button>
+			<a href="index" class="btn btn-primary">Back</a>
+		</form>
+
+	</div>
+
+
+
+	<script type="text/javascript">
+		function signIn(){
+			let username = document.signInForm.username.value
+			let password = document.signInForm.password.value
+			let rePassword = document.signInForm.rePassword.value
+
+			if (password != rePassword) {
+				$('#errorMsg').text('Password is not the same.')
+				return
+			}
+
+			document.signInForm.action = 'insert'
+			document.signInForm.submit()
+		}
+	</script>
+</body>
+</html>

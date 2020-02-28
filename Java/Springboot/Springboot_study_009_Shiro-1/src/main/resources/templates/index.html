@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style type="text/css">
+	.btn-block { margin-bottom: 5px; }
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row justify-content-end bg-light">
+			<div class="btn-group" role="group" aria-lable="Basic example">
+				<a class="btn btn-info" role="button" href="/userList">All User</a>
+				<a class="btn btn-secondary" role="button" href="/logout">Logout</a>		
+			</div>
+		</div>
+		
+		<div class="row justify-content-center">
+		    <div class="col-md-auto"><h1 class="text-success" th:text="'Welcome ' + ${user.username}"></h1></div>
+	  	</div>
+		<div class="row justify-content-center">
+			<a class="btn btn-info btn-block" role="button" href="/userList">Show All User</a>
+	  	</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test
+    initialization-mode: always
+    username: sa
+    password: 
+    schema:
+    - classpath:db/user.sql
+#    data:
+#    - classpath:db/userdata.sql
+    hikari:
+      initialization-fail-timeout: 1000
+      minimum-idle: 5
+      maximum-pool-size: 20
+      max-lifetime: 10000
+  jpa:
+    # The schema.sql and data.sql were being run but then the schema was recreated depending on the value (or lack of) of the 
+    # spring.jpa.hibernate.ddl-auto property.
+    # If not specified, spring/hibernate between them ended up recreating an empty schema (default seems to be create-drop for in memory DB).
+    # If set the 'none' then that wouldn't happen and DB as created by the schema and data sql scripts would remain and the application functioned correctly
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2
+ 
+logging:
+  level:
+    root: debug
+    sql: debug  

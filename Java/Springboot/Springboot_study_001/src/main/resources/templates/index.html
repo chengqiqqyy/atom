@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Controller Test</title>
+</head>
+<style>
+	table { border-collapse: collapse;}
+</style>
+<body>
+	<h1>Controller Test Application</h1>
+	<h3 th:text="${type}"></h3>
+	<h4 th:text="${msg}"></h4>
+	
+	<form action="/" method="post">
+		<input type="text" name="username" th:value="${value}">
+		<input type="submit" value="OK">
+	</form>
+	<p th:text="${hiMsg}"></p>
+	
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>JPA Controller Test</title>
+</head>
+<style>
+	table { border-collapse: collapse;}
+</style>
+<body>
+	<h1>JPA Test Application</h1>
+	
+<!-- 	<form method="post" action="/" th:object="${formModel}">
+		<label for="name">Name:</label><input type="text" name="name" th:value="${name}"><input type="submit" value="Add">	
+	</form>
+	<hr> -->
+<!-- 	<table border="1">
+  		<form method="post" action="/" th:object="${formModel}">
+  			<tr>
+    			<td><label for="name">名前</label></td>
+    			<td><input type="text" name="name" th:value="*{name}" /></td>
+  			</tr>
+  			<tr>
+    			<td></td>
+	    		<td><input type="submit" /></td>
+	  		</tr>
+	  	</form>
+	</table>
+ -->	
+ 	<a href="add">Add</a>
+	<table border="1">
+		<tr><th>ID</th><th>Name</th><th>Sex</th><th>Work</th><th>Hobby</th><th>Edit</th><th>Delete</th></tr>
+		<tr th:each="obj : ${data}">
+			<th th:text="${obj.id}"></th>
+			<th th:text="${obj.name}"></th>
+			<th th:text="${obj.sex}"></th>
+			<th th:text="${obj.work}"></th>
+			<th th:text="${obj.hobby}"></th>
+			<th><a th:href="@{edit(id=${obj.id})}">Edit</a></th>
+			<th><a th:href="@{delete(id=${obj.id})}">Delete</a></th>
+		</tr>
+	</table>
+</body>
+</html>

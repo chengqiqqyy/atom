@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<style>
+	div { text-align: center; }
+	th { text-align: center; }
+</style>
+<body>
+	<div class="container">
+		<table class="table table-striped table-hover table-bordered">
+			<tr><th>LOG_ID</th><th>JOB_ID</th><th>BEAN_NAME</th><th>METHOD_NAME</th><th>PARAMS</th><th>STATUS</th><th>ERROR</th><th>TIMES</th><th>CREATE_TIME</th></tr>
+			<tr th:each="list : ${jobList}">
+				<td th:text="${list.logId}"></td>
+				<td th:text="${list.jobId}"></td>
+				<td th:text="${list.beanName}"></td>
+				<td th:text="${list.methodName}"></td>
+				<td th:text="${list.params}==null?'Null':${list.params}"></td>
+				<td th:text="${list.status}"></td>
+				<td th:text="${list.error}==null?'Null':${list.error}"></td>
+				<td th:text="${list.times}"></td>
+				<td th:text="${list.createTime}"></td>
+			</tr>
+			<tr><td colspan="9"><a href="/" class="btn btn-lg btn-primary btn-block">Back</a></td></tr>
+		</table>
+	</div>
+</body>
+</html>

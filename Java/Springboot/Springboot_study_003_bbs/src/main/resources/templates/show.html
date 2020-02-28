@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Simple BBS</title>
+</head>
+<style>
+	table { border-collapse: collapse; }
+	th { text-align: center;}
+	td.content { width: 400px; height: 150px; text-align: justify;}
+	a { text-decoration: none; color: fuchsia;}
+	a:visited { color: fuchsia; }
+</style>
+<body>
+	<h1>Simple BBS</h1>
+	<table border="1">
+		<tr><th>Title</th><th th:text="${data.title}"></th></tr>
+		<tr>
+			<th>Content</th>
+			<td class="content" th:text="${data.content}"></td>
+			<!-- <td class="content"><p th:text="${data.content}"></p></td> -->
+		</tr>
+		<tr>
+			<td colspan="2"><a th:href="@{edit(id=${data.id})}">Edit</a><a href="/">Back</a></td>
+		</tr>
+	</table>
+</body>
+</html>

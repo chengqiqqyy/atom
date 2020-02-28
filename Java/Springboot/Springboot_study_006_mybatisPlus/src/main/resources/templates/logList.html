@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<style>
+	div { text-align: center; }
+	th { text-align: center; }
+</style>
+<body>
+	<div class="container">
+		<table class="table table-striped table-hover table-bordered">
+			<tr><th>ID</th><th>UserName</th><th>Operation</th><th>Time</th><th>Method</th><th>PARAMS</th><th>IP</th><th>Create_time</th><th>Location</th></tr>
+			<tr th:each="list : ${logList}">
+				<td th:text="${list.id}"></td>
+				<td th:text="${list.username}"></td>
+				<td th:text="${list.operation}"></td>
+				<td th:text="${list.time}"></td>
+				<td th:text="${list.method}"></td>
+				<td th:text="${list.params}"></td>
+				<td th:text="${list.ip}"></td>
+				<td th:text="${list.createTime}"></td>
+				<td th:text="${list.location}"></td>
+			</tr>
+			<tr><td colspan="8"><a href="/" class="btn btn-lg btn-primary btn-block">Back</a></td></tr>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<style>
+	div { text-align: center; }
+</style>
+<body>
+	<div class="container">
+		<h1>Register</h1>
+		<form class="form-signin" method="post" th:action="@{/regist}" th:object="${data}">
+			<div th:if="${param.error}" class="alert alert-danger">Username already exist.</div>
+			<input type="text" name="username" th:value="*{username}" class="form-control" placeholder="Username" required="required" autofocus="autofocus">
+			<input type="password" name="password" th:value="*{password}" class="form-control" placeholder="Password" required="required">
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Regist</button>
+			<a class="btn btn-lg btn-primary btn-block" href="/login">Cancel</a>
+		</form>
+	</div>
+</body>
+</html>

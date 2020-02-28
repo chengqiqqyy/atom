@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Simple BBS</title>
+</head>
+<style>
+	table { border-collapse: collapse; }
+	th { text-align: center;}
+	td.content { width: 400px; height: 150px; text-align: justify;}
+	a { text-decoration: none; color: fuchsia;}
+	a:visited { color: fuchsia; }
+</style>
+<body>
+	<h1>Simple BBS</h1>
+	<form method="post" action="/save" th:object="${data}">
+		<input type="hidden" name="id" th:value="*{id}">
+		<table border="1">
+			<tr>
+				<th>Title</th>
+				<th><input type="text" name="title" th:value="*{title}" size="80"></th>
+			</tr>
+			<tr>
+				<th>UserName</th>
+				<th><input type="text" name="username" th:value="*{username}" size="80"></th>
+			</tr>
+			<tr>
+				<th>Content</th>
+				<!-- <td class="content"><input type="text" name="content" th:value="*{content}" size="80"></td> -->
+				<td class="content"><textarea rows="10" cols="60" name="content" th:value="*{content}"></textarea></td>
+				<!-- <td class="content"><p th:text="${data.content}"></p></td> -->
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Post"><a href="/">Back</a></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

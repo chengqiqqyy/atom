@@ -1,0 +1,12 @@
+.br{
+  margin-bottom: 15px;
+}
+
+#homepage {
+  height: 100%;
+}
+
+#sticky-footer {
+  height: 100px;
+  background: rgba(40, 139, 197, 0.8);
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Simple BBS</title>
+</head>
+<style>
+	table { border-collapse: collapse; }
+	td { text-align: center; }
+	td.id { width: 50px }
+	td.date { width: 200px; }
+	td.title { width: 350px; }
+	td.username { width: 100px; }
+	td.func { width: 100px; }
+	a { text-decoration: none; color: fuchsia;}
+	a:visited { color: fuchsia; }
+</style>
+<body>
+	<h1>Simple BBS</h1>
+	<table border="1">
+		<tr><th>ID</th><th>Date</th><th>Title</th><th>UserName</th><th>SeeAll</th><th>Edit</th><th>Delete</th></tr>
+		<tr th:each="ret : ${data}">
+			<td class="id" th:text="${ret.id}"></td>
+			<td class="date" th:text="${ret.date}"></td>
+			<td class="title" th:text="${ret.title}"></td>
+			<td class="username" th:text="${ret.username}"></td>
+			<td class="func"><a th:href="@{show(id=${ret.id})}">Show</a></td>
+			<td class="func"><a th:href="@{edit(id=${ret.id})}">Edit</a></td>
+			<td class="func"><a th:href="@{delete(id=${ret.id})}">Delete</a></td>
+		</tr>
+		<tr><td colspan="2"><a href="add">New BBS</a></td></tr>
+	</table>
+</body>
+</html>

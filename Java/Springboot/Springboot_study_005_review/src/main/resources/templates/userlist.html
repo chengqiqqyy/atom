@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<style>
+	div { text-align: center; }
+	th { text-align: center; }
+</style>
+<body>
+	<div class="container">
+		<table class="table table-striped table-hover table-bordered">
+			<tr><th>Id</th><th>Username</th><th>Password</th></tr>
+			<tr th:each="list : ${userList}">
+				<td th:text="${list.id}"></td>
+				<td th:text="${list.username}"></td>
+				<td th:text="${list.password}"></td>
+			</tr>
+			<tr><td colspan="3"><a href="/index" class="btn btn-lg btn-primary btn-block">Back</a></td></tr>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="app.mapper.ProductMapper">
+	<resultMap type="app.entity.Product" id="product">
+		<result column="product_id" property="id" javaType="Long"/>
+		<result column="create_time" property="createTime" javaType="Date"/>
+		<result column="update_time" property="updateTime" javaType="Date"/>
+		<result column="product_name" property="name" javaType="String"/>
+		<result column="model" property="model" javaType="String"/>
+		<result column="code" property="code" javaType="String"/>
+		<result column="note" property="note" javaType="String"/>
+		<result column="price" property="price" javaType="double"/>
+		<result column="stock" property="stock" javaType="int"/>
+		<result column="product_type_id" property="productTypeId" javaType="Long"/>
+		<result column="master_pic_id" property="masterPicId" javaType="Long"/>
+		<result column="slave_pic_id" property="slavePicId" javaType="Long"/>
+	</resultMap>
+	
+	<select id="findAll" resultMap="product">
+		select * from t_product
+	</select>
+	
+	<select id="findById" parameterType="Long" resultMap="product">
+		select * from t_product where product_id = #{id}
+	</select>
+	
+	<select id="findLikeName" resultMap="product">
+		select * from t_product where product_name like #{name}
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true">
+		insert into t_product(
+			product_name,
+			model,
+			code,
+			stock,
+			note,
+			product_type_id,
+			master_pic_id,
+			slave_pic_id,
+			price)
+		values(
+			#{name},
+			#{model},
+			#{code},
+			#{stock},
+			#{note},
+			#{productTypeId},
+			#{masterPicId},
+			#{slavePicId},
+			#{price})
+	</insert>
+	
+	<update id="update">
+		update t_product p
+		set
+	        p.product_name = #{name},
+	        p.model = #{model},
+	        p.code = #{code},
+	        p.note = #{note},
+	        p.price = #{price},
+	        p.stock = #{stock},
+	        p.product_type_id = #{productTypeId},
+	        p.master_pic_id = #{masterPicId},
+	        p.slave_pic_id = #{slavePicId}
+        where
+        	p.product_id = #{id}
+	</update>
+	
+	<delete id="deleteById">
+		delete from t_product where product_id = #{id}
+	</delete>
+	
+</mapper>

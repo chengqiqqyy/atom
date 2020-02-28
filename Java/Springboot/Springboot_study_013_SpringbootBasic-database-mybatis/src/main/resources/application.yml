@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    # 内存数据库，服务器重起会重置
+#    url: jdbc:h2:mem:mybatis
+    # 数据库永久化，会在本地创建数据库文件
+    url: jdbc:h2:file:./src/main/resources/db/mybatis
+    initialization-mode: always
+    username: admin
+    password: 
+#    schema:
+#    - classpath:db/user.sql
+  h2:
+    console:
+      enabled: true
+      path: /h2
+    
+mybatis:
+  mapper-locations:
+  - classpath:mapper/*.xml
+  type-aliases-package: app.entity
+  type-handlers-package: app.typeHandler
+  # mybatis配置文件，使用复杂配置时使用。没有特殊要求时，使用Springboot自动配置即可。
+  config-location: classpath:mybatis/mybatis-config.xml
+  
+
+logging:
+  level:
+    root: debug
+    org.springframework: debug
+    org.org.mybatis: debug
